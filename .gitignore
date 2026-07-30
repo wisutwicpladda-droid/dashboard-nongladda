@@ -1,0 +1,10 @@
+.superpowers/
+/node_modules/
+.env
+.env.*
+!.env.example
+/dist/
+/qa/
+.env.production
+/supabase/.temp/
+

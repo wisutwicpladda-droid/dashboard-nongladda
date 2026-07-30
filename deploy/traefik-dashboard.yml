@@ -1,0 +1,16 @@
+http:
+  routers:
+    nong-ladda-dashboard:
+      rule: Host(`dashboard.srv1651337.hstgr.cloud`)
+      entryPoints:
+        - websecure
+      service: nong-ladda-dashboard
+      tls:
+        certResolver: letsencrypt
+
+  services:
+    nong-ladda-dashboard:
+      loadBalancer:
+        servers:
+          - url: http://127.0.0.1:18880
+
