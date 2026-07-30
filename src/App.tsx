@@ -84,8 +84,28 @@ function AppSidebar({
   return (
     <aside className="sidebar">
       <div className="brand">
-        <strong>น้องลัดดา</strong>
-        <span>ระบบดูแลลูกค้าของบริษัท</span>
+        <div className="brand-mark">
+          <Bot size={22} />
+        </div>
+        <div>
+          <strong>น้องลัดดา</strong>
+          <span>ระบบดูแลลูกค้าของบริษัท</span>
+        </div>
+      </div>
+      <div className="sidebar-card">
+        <span>งานวันนี้</span>
+        <strong>{data.todayMessageCount}</strong>
+        <small>ข้อความ LINE ทั้งหมด</small>
+      </div>
+      <div className="sidebar-stats">
+        <div>
+          <strong>{data.unresolvedCount}</strong>
+          <span>รอแอดมิน</span>
+        </div>
+        <div>
+          <strong>{data.aiQueueNow}</strong>
+          <span>คิว AI</span>
+        </div>
       </div>
       <nav className="nav">
         {navItems.map((item) => {
@@ -129,6 +149,10 @@ function Topbar({
 }) {
   return (
     <header className="topbar">
+      <div className="topbar-title">
+        <span>Admin CRM</span>
+        <strong>ศูนย์ดูแลลูกค้า LINE</strong>
+      </div>
       <label className="search-box">
         <Search size={17} />
         <input
@@ -141,7 +165,9 @@ function Topbar({
         <RefreshCw size={17} />
       </button>
       <div className="user-chip">
-        <span>{session?.name.slice(0, 1) || "จ"}</span>
+        <span>
+          <UserRound size={16} />
+        </span>
         <div>
           <strong>{session?.name || "แอดมิน"}</strong>
           <small>{session?.role === "admin" ? "ผู้ดูแลระบบ" : "ผู้ใช้งาน"}</small>
@@ -272,7 +298,7 @@ function Overview({
       <div className="page-title">
         <div>
           <h1>ภาพรวมวันนี้</h1>
-          <p>{currentDate}</p>
+          <p>{currentDate} · ดูเคสที่ต้องจัดการก่อน แล้วค่อยตรวจระบบ</p>
         </div>
         <button className="secondary-button" onClick={onRefresh} type="button">โหลดข้อมูลล่าสุด</button>
       </div>
