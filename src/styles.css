@@ -1102,12 +1102,14 @@ textarea:disabled {
 @media (max-width: 980px) {
   .app-shell {
     grid-template-columns: 1fr;
+    align-content: start;
   }
 
   .sidebar {
     position: sticky;
     height: auto;
     min-height: 0;
+    align-self: start;
     width: 100%;
     max-width: 100vw;
     overflow: hidden;
